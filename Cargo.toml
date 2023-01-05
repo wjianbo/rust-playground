@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 clap = { version = "4.0.30", features = ["derive"] }
 regex = "1.0.5"
+lazy_static = "1.1.0"
