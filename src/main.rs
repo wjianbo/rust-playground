@@ -32,9 +32,20 @@ fn regex_sample() {
     }
 }
 
+fn named_regex_sample() {
+    let re = Regex::new(r"(?x)(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})").unwrap();
+    let caps = re.captures(TO_SEARCH).unwrap();
+    println!(
+        "year: {}, month: {}, day: {}",
+        &caps["year"], &caps["month"], &caps["day"],
+    );
+    let after = re.replace_all(TO_SEARCH, "$month/$day/$year");
+    println!("{}", after);
+}
+
 fn main() {
     // let args = Args::parse();
     // println!("{:?}", args);
     println!("Hello, world!");
-    regex_sample();
+    named_regex_sample();
 }
